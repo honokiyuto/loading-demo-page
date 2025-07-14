@@ -1,10 +1,9 @@
 import {
-  Calendar,
+  FileVideo,
+  FlaskConical,
   Grid2x2,
-  Home,
-  Inbox,
   LoaderCircle,
-  Search,
+  Monitor,
   Settings,
   SquareDashed,
   SquaresUnite,
@@ -13,9 +12,11 @@ import {
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -24,27 +25,27 @@ import {
 // Menu items.
 const loadingCompare = [
   {
-    title: 'settings',
-    url: '/',
+    title: '秒数設定',
+    url: '/settings',
     icon: Settings,
   },
   {
-    title: 'skeleton',
+    title: 'スケルトンのみ',
     url: '/skeleton',
     icon: Grid2x2,
   },
   {
-    title: 'spinner',
+    title: 'スピナーのみ',
     url: '/spinner',
     icon: LoaderCircle,
   },
   {
-    title: 'blank',
+    title: 'ブランクのみ',
     url: '/blank',
     icon: SquareDashed,
   },
   {
-    title: 'blank+spinner',
+    title: 'ブランク→スピナー',
     url: '/blank-spinner',
     icon: SquaresUnite,
   },
@@ -52,15 +53,26 @@ const loadingCompare = [
 
 const antDesign = [
   {
-    title: 'movie',
+    title: '動画ローディング',
     url: '/movie',
-    icon: Inbox,
+    icon: FileVideo,
+  },
+  {
+    title: '画面全体ローディング',
+    url: '/full-screen',
+    icon: Monitor,
   },
 ];
 
 export function AppSidebar() {
   return (
     <Sidebar>
+      <SidebarHeader>
+        <div className="flex flex-row items-center gap-2 m-3">
+          <FlaskConical />
+          <h1 className="text-lg font-bold">スケルトンDemo</h1>
+        </div>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>ローディングUI比較</SidebarGroupLabel>
@@ -68,7 +80,10 @@ export function AppSidebar() {
             <SidebarMenu>
               {loadingCompare.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={window.location.pathname === item.url}
+                  >
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
@@ -85,7 +100,10 @@ export function AppSidebar() {
             <SidebarMenu>
               {antDesign.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={window.location.pathname === item.url}
+                  >
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
@@ -97,6 +115,9 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <p className="text-sm text-gray-500 m-3">© 2025 honokiyuto</p>
+      </SidebarFooter>
     </Sidebar>
   );
 }

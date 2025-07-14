@@ -7,10 +7,28 @@ export type ContentItem = {
   tags: string[];
 };
 
-export const INTERVAL_TIME = 3000;
+export const DEFAULT_INTERVAL_TIME_MS = 3000;
+
+export const setIntervalToLocalStorage = (interval: number) => {
+  localStorage.setItem('interval', interval.toString());
+};
+
+export const getIntervalFromLocalStorage = () => {
+  const interval = localStorage.getItem('interval');
+  if (!interval) {
+    return DEFAULT_INTERVAL_TIME_MS;
+  }
+  const intInterval = parseInt(interval);
+  if (!intInterval) {
+    return DEFAULT_INTERVAL_TIME_MS;
+  }
+  return intInterval;
+};
 
 export const getContentItems = async () => {
-  await new Promise((resolve) => setTimeout(resolve, INTERVAL_TIME));
+  await new Promise((resolve) =>
+    setTimeout(resolve, getIntervalFromLocalStorage())
+  );
   return contentItems;
 };
 
