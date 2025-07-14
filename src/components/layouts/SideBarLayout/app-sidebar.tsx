@@ -65,6 +65,7 @@ const antDesign = [
 ];
 
 export function AppSidebar() {
+  const basePath = import.meta.env.BASE_URL;
   return (
     <Sidebar>
       <SidebarHeader>
@@ -84,7 +85,7 @@ export function AppSidebar() {
                     asChild
                     isActive={window.location.pathname === item.url}
                   >
-                    <a href={item.url}>
+                    <a href={`${basePath}${item.url}`}>
                       <item.icon />
                       <span>{item.title}</span>
                     </a>
@@ -104,7 +105,7 @@ export function AppSidebar() {
                     asChild
                     isActive={window.location.pathname === item.url}
                   >
-                    <a href={item.url}>
+                    <a href={`${basePath}${item.url}`}>
                       <item.icon />
                       <span>{item.title}</span>
                     </a>
