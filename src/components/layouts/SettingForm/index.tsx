@@ -1,7 +1,4 @@
-import { ModeToggle } from '@/components/ui/ModeToggle';
-import { SidebarTrigger } from '@/components/ui/sidebar';
-
-import SidebarLayout from '../SideBarLayout/sidebar-layout';
+import SidebarLayoutMain from '../SideBarLayout/sidebar-layout';
 import { Slider } from '@/components/ui/slider';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -13,13 +10,8 @@ import { useState } from 'react';
 export const SettingForm = () => {
   const [interval, setInterval] = useState(getIntervalFromLocalStorage());
   return (
-    <SidebarLayout>
-      <main className="w-full p-6 relative">
-        <SidebarTrigger className="m-3 absolute top-0 left-0 md:hidden" />
-        <div className="m-3 absolute top-0 right-0">
-          <ModeToggle />
-        </div>
-
+    <SidebarLayoutMain>
+      <div className="w-full p-6 relative">
         <Card className="w-full mt-10 md:p-10 p-7">
           <CardHeader>
             <CardTitle>ローディング時間 (ms)</CardTitle>
@@ -39,7 +31,7 @@ export const SettingForm = () => {
             />
           </CardContent>
         </Card>
-      </main>
-    </SidebarLayout>
+      </div>
+    </SidebarLayoutMain>
   );
 };

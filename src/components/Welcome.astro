@@ -1,9 +1,0 @@
----
-import Layout from '@/layouts/Layout.astro';
-import { MainContents } from './layouts/MainContents';
-import { SpinnerScreen } from './layouts/Loading/SpinnerScreen';
----
-
-<Layout>
-  <MainContents client:only="react" fallbackType="spinner" />
-</Layout>

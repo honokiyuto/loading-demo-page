@@ -30,7 +30,7 @@ export const Skeleton = ({ className }: { className: string }) => {
 
 export const SkeletonScreen = () => {
   return (
-    <main className="w-full p-6">
+    <div className="w-full p-6">
       <div className="mb-8 flex flex-col items-center justify-center gap-2">
         <Skeleton className="rounded-2xl h-8 w-48" />
         <Skeleton className="rounded-2xl h-4 w-100" />
@@ -41,6 +41,6 @@ export const SkeletonScreen = () => {
           <Skeleton key={index} className="rounded-2xl w-full h-60" />
         ))}
       </div>
-    </main>
+    </div>
   );
 };
