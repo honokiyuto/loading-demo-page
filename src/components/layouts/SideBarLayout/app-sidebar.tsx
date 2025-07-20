@@ -25,27 +25,27 @@ import {
 // Menu items.
 const loadingCompare = [
   {
-    title: '秒数設定',
+    title: 'Settings',
     url: '/settings',
     icon: Settings,
   },
   {
-    title: 'スケルトンのみ',
+    title: 'Skeleton Only',
     url: '/skeleton',
     icon: Grid2x2,
   },
   {
-    title: 'スピナーのみ',
+    title: 'Spinner Only',
     url: '/spinner',
     icon: LoaderCircle,
   },
   {
-    title: 'ブランクのみ',
+    title: 'Blank Only',
     url: '/blank',
     icon: SquareDashed,
   },
   {
-    title: 'ブランク→スピナー',
+    title: 'Blank -> Spinner',
     url: '/blank-spinner',
     icon: SquaresUnite,
   },
@@ -53,12 +53,12 @@ const loadingCompare = [
 
 const antDesign = [
   {
-    title: '動画ローディング',
+    title: 'Movie Loading',
     url: '/movie',
     icon: FileVideo,
   },
   {
-    title: '画面全体ローディング',
+    title: 'Full Screen Loading',
     url: '/full-screen',
     icon: Monitor,
   },
@@ -71,12 +71,12 @@ export function AppSidebar() {
       <SidebarHeader>
         <div className="flex flex-row items-center gap-2 m-3">
           <FlaskConical />
-          <h1 className="text-lg font-bold">スケルトンDemo</h1>
+          <h1 className="text-lg font-bold">Loading Demo</h1>
         </div>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>ローディングUI比較</SidebarGroupLabel>
+          <SidebarGroupLabel>Loading UI Comparison</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {loadingCompare.map((item) => (
@@ -96,7 +96,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel>アンチパターン</SidebarGroupLabel>
+          <SidebarGroupLabel>Anti Patterns</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {antDesign.map((item) => (

@@ -14,7 +14,7 @@ export const SettingForm = () => {
       <div className="w-full p-6 relative">
         <Card className="w-full mt-10 md:p-10 p-7">
           <CardHeader>
-            <CardTitle>ローディング時間 (ms)</CardTitle>
+            <CardTitle>Loading Duration (ms)</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex flex-row gap-2 mb-4">
