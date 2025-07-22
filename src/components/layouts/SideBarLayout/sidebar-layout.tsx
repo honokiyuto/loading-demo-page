@@ -11,6 +11,7 @@ export const SidebarLayoutMain = ({
   children,
   pathname,
 }: SidebarLayoutMainProps) => {
+  console.log({ pathname });
   return (
     <SidebarProvider>
       <AppSidebar pathname={pathname} />

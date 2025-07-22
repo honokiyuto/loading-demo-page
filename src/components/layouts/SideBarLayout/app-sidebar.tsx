@@ -37,10 +37,7 @@ export const AppSidebar = ({ pathname }: AppSidebarProps) => {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={pathname === `${basePath}${home.url}`}
-                >
+                <SidebarMenuButton asChild isActive={pathname === ''}>
                   <a href={`${basePath}${home.url}`}>
                     <home.icon />
                     <span>{home.title}</span>

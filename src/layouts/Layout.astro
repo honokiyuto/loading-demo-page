@@ -1,10 +1,12 @@
 ---
 import { SidebarLayoutMain } from '@/components/layouts/SideBarLayout/sidebar-layout';
 import '../styles/global.css';
+
 const { pathname } = Astro.url;
-const pathnameWithoutSlash = pathname.split('/').pop() || 'home';
+const pathnameForTitle = pathname.split('/')?.[2] || 'home';
+const pathnameForSidebar = pathname.split('/').slice(0, -1).join('/');
 const subTitle =
-  pathnameWithoutSlash.charAt(0).toUpperCase() + pathnameWithoutSlash.slice(1);
+  pathnameForTitle.charAt(0).toUpperCase() + pathnameForTitle.slice(1);
 const subTitleWithoutHyphen = subTitle.replace(/-/g, ' ');
 ---
 
@@ -44,7 +46,7 @@ const subTitleWithoutHyphen = subTitle.replace(/-/g, ' ');
     <title>{`Loading Demo | ${subTitleWithoutHyphen}`}</title>
   </head>
   <body>
-    <SidebarLayoutMain pathname={pathname} client:load>
+    <SidebarLayoutMain pathname={pathnameForSidebar} client:load>
       <slot />
     </SidebarLayoutMain>
   </body>
