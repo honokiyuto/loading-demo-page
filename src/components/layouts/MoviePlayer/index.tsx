@@ -7,7 +7,6 @@ import {
   Triangle,
   Volume2,
 } from 'lucide-react';
-import SidebarLayoutMain from '../SideBarLayout/sidebar-layout';
 import { Skeleton } from '../Loading/SkeletonScreen';
 
 type MoviePlayerComponentProps = {
@@ -46,19 +45,17 @@ const MoviePlayerComponent = ({ loadingType }: MoviePlayerComponentProps) => {
 
 export const MoviePlayer = () => {
   return (
-    <SidebarLayoutMain>
-      <div className="w-full p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-          <div className="flex flex-col">
-            <MoviePlayerComponent loadingType="skeleton" />
-            <Triangle className="h-10 w-10 text-red-400 self-center mt-2" />
-          </div>
-          <div className="flex flex-col">
-            <MoviePlayerComponent loadingType="spinner" />
-            <Check className="h-10 w-10 text-green-400 self-center mt-2" />
-          </div>
+    <div className="w-full p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+        <div className="flex flex-col">
+          <MoviePlayerComponent loadingType="skeleton" />
+          <Triangle className="h-10 w-10 text-red-400 self-center mt-2" />
+        </div>
+        <div className="flex flex-col">
+          <MoviePlayerComponent loadingType="spinner" />
+          <Check className="h-10 w-10 text-green-400 self-center mt-2" />
         </div>
       </div>
-    </SidebarLayoutMain>
+    </div>
   );
 };

@@ -1,5 +1,3 @@
-import { SidebarTrigger } from '@/components/ui/sidebar';
-import SidebarLayoutMain from '../SideBarLayout/sidebar-layout';
 import { ArrowLeft, ArrowRight, Check, Triangle } from 'lucide-react';
 import { Skeleton } from '../Loading/SkeletonScreen';
 
@@ -50,19 +48,17 @@ const FullScreenComponent = ({ loadingType }: FullScreenComponentProps) => {
 
 export const FullScreen = () => {
   return (
-    <SidebarLayoutMain>
-      <div className="w-full p-6 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-          <div className="flex flex-col">
-            <FullScreenComponent loadingType="full" />
-            <Triangle className="h-10 w-10 text-red-400 self-center mt-2" />
-          </div>
-          <div className="flex flex-col">
-            <FullScreenComponent loadingType="partial" />
-            <Check className="h-10 w-10 text-green-400 self-center mt-2" />
-          </div>
+    <div className="w-full p-6 relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+        <div className="flex flex-col">
+          <FullScreenComponent loadingType="full" />
+          <Triangle className="h-10 w-10 text-red-400 self-center mt-2" />
+        </div>
+        <div className="flex flex-col">
+          <FullScreenComponent loadingType="partial" />
+          <Check className="h-10 w-10 text-green-400 self-center mt-2" />
         </div>
       </div>
-    </SidebarLayoutMain>
+    </div>
   );
 };

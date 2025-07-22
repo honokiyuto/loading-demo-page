@@ -1,10 +1,11 @@
 ---
+import { SidebarLayoutMain } from '@/components/layouts/SideBarLayout/sidebar-layout';
 import '../styles/global.css';
-const pathname = (Astro.url.pathname.split('/').pop() || 'home').replace(
-  '-',
-  ' '
-);
-const subTitle = pathname.charAt(0).toUpperCase() + pathname.slice(1);
+const { pathname } = Astro.url;
+const pathnameWithoutSlash = pathname.split('/').pop() || 'home';
+const subTitle =
+  pathnameWithoutSlash.charAt(0).toUpperCase() + pathnameWithoutSlash.slice(1);
+const subTitleWithoutHyphen = subTitle.replace(/-/g, ' ');
 ---
 
 <script is:inline>
@@ -34,12 +35,17 @@ const subTitle = pathname.charAt(0).toUpperCase() + pathname.slice(1);
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{`Loading Demo | ${subTitle}`}</title>
+    <title>{`Loading Demo | ${subTitleWithoutHyphen}`}</title>
   </head>
   <body>
-    <slot />
+    <SidebarLayoutMain pathname={pathname} client:load>
+      <slot />
+    </SidebarLayoutMain>
   </body>
 </html>

@@ -1,14 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Home from '../components/layouts/Home/index.md';
-import SidebarLayoutMain from '@/components/layouts/SideBarLayout/sidebar-layout';
 import MdLayout from '@/layouts/MdLayout.astro';
 ---
 
 <Layout>
-  <SidebarLayoutMain client:only="react">
-    <MdLayout>
-      <Home />
-    </MdLayout>
-  </SidebarLayoutMain>
+  <MdLayout>
+    <Home />
+  </MdLayout>
 </Layout>

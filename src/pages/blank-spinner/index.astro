@@ -1,8 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { MainContents } from '@/components/layouts/MainContents';
+import { SampleContents } from '@/components/layouts/SampleContents';
 ---
 
 <Layout>
-  <MainContents client:only="react" fallbackType="blank-spinner" />
+  <SampleContents client:only="react" fallbackType="blank-spinner" />
 </Layout>

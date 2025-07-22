@@ -1,14 +1,4 @@
-import {
-  FileVideo,
-  FlaskConical,
-  Grid2x2,
-  Home,
-  LoaderCircle,
-  Monitor,
-  Settings,
-  SquareDashed,
-  SquaresUnite,
-} from 'lucide-react';
+import { FlaskConical } from 'lucide-react';
 
 import {
   Sidebar,
@@ -24,7 +14,11 @@ import {
 } from '@/components/ui/sidebar';
 import { home, loadingUIComparison, antiPatterns } from '@/lib/constants';
 
-export function AppSidebar() {
+type AppSidebarProps = {
+  pathname: string;
+};
+
+export const AppSidebar = ({ pathname }: AppSidebarProps) => {
   const basePath = import.meta.env.BASE_URL;
   return (
     <Sidebar>
@@ -45,7 +39,7 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
-                  isActive={window.location.pathname === home.url}
+                  isActive={pathname === `${basePath}${home.url}`}
                 >
                   <a href={`${basePath}${home.url}`}>
                     <home.icon />
@@ -64,7 +58,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
-                    isActive={window.location.pathname === item.url}
+                    isActive={pathname === `${basePath}${item.url}`}
                   >
                     <a href={`${basePath}${item.url}`}>
                       <item.icon />
@@ -84,7 +78,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
-                    isActive={window.location.pathname === item.url}
+                    isActive={pathname === `${basePath}${item.url}`}
                   >
                     <a href={`${basePath}${item.url}`}>
                       <item.icon />
@@ -102,4 +96,4 @@ export function AppSidebar() {
       </SidebarFooter>
     </Sidebar>
   );
-}
+};
