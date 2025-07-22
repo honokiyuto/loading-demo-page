@@ -1,7 +1,10 @@
 ---
 import '../styles/global.css';
-const pathname = Astro.url.pathname;
-
+const pathname = (Astro.url.pathname.split('/').pop() || 'home').replace(
+  '-',
+  ' '
+);
+const subTitle = pathname.charAt(0).toUpperCase() + pathname.slice(1);
 ---
 
 <script is:inline>
@@ -28,13 +31,13 @@ const pathname = Astro.url.pathname;
   }
 </script>
 
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>スケルトン Demo</title>
+    <title>{`Loading Demo | ${subTitle}`}</title>
   </head>
   <body>
     <slot />

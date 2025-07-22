@@ -2,6 +2,7 @@ import {
   FileVideo,
   FlaskConical,
   Grid2x2,
+  Home,
   LoaderCircle,
   Monitor,
   Settings,
@@ -22,7 +23,12 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 
-// Menu items.
+const home = {
+  title: 'Home',
+  url: '/',
+  icon: Home,
+};
+
 const loadingCompare = [
   {
     title: 'Settings',
@@ -69,12 +75,33 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader>
-        <div className="flex flex-row items-center gap-2 m-3">
+        <a
+          href={`${basePath}${home.url}`}
+          className="flex flex-row items-center gap-2 m-3"
+        >
           <FlaskConical />
           <h1 className="text-lg font-bold">Loading Demo</h1>
-        </div>
+        </a>
       </SidebarHeader>
       <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>Home</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={window.location.pathname === home.url}
+                >
+                  <a href={`${basePath}${home.url}`}>
+                    <home.icon />
+                    <span>{home.title}</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>Loading UI Comparison</SidebarGroupLabel>
           <SidebarGroupContent>

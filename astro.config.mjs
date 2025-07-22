@@ -6,7 +6,7 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://honokiyuto.github.io',
-  base: '/skeleton-demo-page',
+  base: '/loading-demo-page',
   integrations: [react()],
   devToolbar: {
     enabled: false,

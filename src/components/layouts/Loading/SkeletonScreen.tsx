@@ -32,8 +32,8 @@ export const SkeletonScreen = () => {
   return (
     <div className="w-full p-6">
       <div className="mb-8 flex flex-col items-center justify-center gap-2">
-        <Skeleton className="rounded-2xl h-8 w-48" />
-        <Skeleton className="rounded-2xl h-4 w-100" />
+        <Skeleton className="rounded-2xl h-8 w-1/2" />
+        <Skeleton className="rounded-2xl h-4 w-3/4" />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">

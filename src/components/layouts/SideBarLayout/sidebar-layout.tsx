@@ -10,7 +10,7 @@ export default function SidebarLayoutMain({
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main className="w-full relative">
+      <main className="w-full relative p-6">
         {children}
         <SidebarTrigger className="m-3 absolute top-0 left-0 md:hidden" />
         <div className="m-3 absolute top-0 right-0">
