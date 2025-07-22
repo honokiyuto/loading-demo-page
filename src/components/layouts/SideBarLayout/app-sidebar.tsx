@@ -22,53 +22,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
-
-const home = {
-  title: 'Home',
-  url: '/',
-  icon: Home,
-};
-
-const loadingCompare = [
-  {
-    title: 'Settings',
-    url: '/settings',
-    icon: Settings,
-  },
-  {
-    title: 'Skeleton Only',
-    url: '/skeleton',
-    icon: Grid2x2,
-  },
-  {
-    title: 'Spinner Only',
-    url: '/spinner',
-    icon: LoaderCircle,
-  },
-  {
-    title: 'Blank Only',
-    url: '/blank',
-    icon: SquareDashed,
-  },
-  {
-    title: 'Blank -> Spinner',
-    url: '/blank-spinner',
-    icon: SquaresUnite,
-  },
-];
-
-const antDesign = [
-  {
-    title: 'Movie Loading',
-    url: '/movie',
-    icon: FileVideo,
-  },
-  {
-    title: 'Full Screen Loading',
-    url: '/full-screen',
-    icon: Monitor,
-  },
-];
+import { home, loadingUIComparison, antiPatterns } from '@/lib/constants';
 
 export function AppSidebar() {
   const basePath = import.meta.env.BASE_URL;
@@ -106,7 +60,7 @@ export function AppSidebar() {
           <SidebarGroupLabel>Loading UI Comparison</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {loadingCompare.map((item) => (
+              {loadingUIComparison.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
@@ -126,7 +80,7 @@ export function AppSidebar() {
           <SidebarGroupLabel>Anti Patterns</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {antDesign.map((item) => (
+              {antiPatterns.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
