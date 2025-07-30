@@ -4,9 +4,10 @@ import { SkeletonScreen } from '../Loading/SkeletonScreen';
 import { SpinnerScreen } from '../Loading/SpinnerScreen';
 import { BlankSpinnerScreen } from '../Loading/BlankSpinnerScreen';
 import { ContentCardList } from './parts/ContentsCardList';
+import { ProgressBarScreen } from '../Loading/ProgressBarScreen';
 
 type SampleContentsProps = {
-  fallbackType: 'spinner' | 'skeleton' | 'blank' | 'blank-spinner';
+  fallbackType: 'spinner' | 'skeleton' | 'blank' | 'blank-spinner' | 'progress-bar';
 };
 
 export const SampleContents = ({ fallbackType }: SampleContentsProps) => {
@@ -22,6 +23,8 @@ export const SampleContents = ({ fallbackType }: SampleContentsProps) => {
         return null;
       case 'blank-spinner':
         return <BlankSpinnerScreen />;
+      case 'progress-bar':
+        return <ProgressBarScreen />;
       default:
         return null;
     }

@@ -1,4 +1,5 @@
 import {
+  ChartBarBig,
   FileVideo,
   Grid2x2,
   Home,
@@ -41,6 +42,11 @@ export const loadingUIComparison = [
     title: 'Blank Only',
     url: '/blank-only',
     icon: SquareDashed,
+  },
+  {
+    title: 'Progress Bar',
+    url: '/progress-bar',
+    icon: ChartBarBig,
   },
   {
     title: 'Blank -> Spinner',
