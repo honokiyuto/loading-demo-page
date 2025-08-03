@@ -8,6 +8,7 @@ const pathnameForSidebar = pathname.split('/').slice(0, -1).join('/');
 const subTitle =
   pathnameForTitle.charAt(0).toUpperCase() + pathnameForTitle.slice(1);
 const subTitleWithoutHyphen = subTitle.replace(/-/g, ' ');
+const basePath = import.meta.env.BASE_URL;
 ---
 
 <script is:inline>
@@ -43,6 +44,16 @@ const subTitleWithoutHyphen = subTitle.replace(/-/g, ' ');
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:url" content={`${basePath}${pathname}`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`Loading Demo | ${subTitleWithoutHyphen}`} />
+    <meta property="og:description" content="ローディング画面比較のデモページ" />
+    <meta property="og:site_name" content="Loading Demo" />
+    <meta property="og:image" content={`${basePath}/ogp.png`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`Loading Demo | ${subTitleWithoutHyphen}`} />
+    <meta name="twitter:description" content="ローディング画面比較のデモページ" />
+    <meta name="twitter:image" content={`${basePath}/ogp.png`} />
     <title>{`Loading Demo | ${subTitleWithoutHyphen}`}</title>
   </head>
   <body>
