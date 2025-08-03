@@ -15,6 +15,7 @@ import {
 import { home, loadingUIComparison, antiPatterns } from '@/lib/constants';
 
 type AppSidebarProps = {
+  /** ex) loading-demo-page/hoge-hoge */
   pathname: string;
 };
 

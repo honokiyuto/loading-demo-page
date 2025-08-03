@@ -4,6 +4,7 @@ import { ModeToggle } from '@/components/ui/ModeToggle';
 
 type SidebarLayoutMainProps = {
   children: React.ReactNode;
+  /** ex) loading-demo-page/hoge-hoge */
   pathname: string;
 };
 
@@ -11,7 +12,6 @@ export const SidebarLayoutMain = ({
   children,
   pathname,
 }: SidebarLayoutMainProps) => {
-  console.log({ pathname });
   return (
     <SidebarProvider>
       <AppSidebar pathname={pathname} />
