@@ -2,11 +2,15 @@ import { getIntervalFromLocalStorage } from '@/lib/mock-data';
 import { useState, useEffect } from 'react';
 import { Progress } from '@/components/ui/progress';
 
-export const ProgressBarScreen = () => {
-  const divideTime = 5;
-  const dividedTime = getIntervalFromLocalStorage() / divideTime;
+type ProgressBarProps = {
+  interval?: number;
+};
 
-  const [value, setValue] = useState(0);
+export const ProgressBar = ({ interval }: ProgressBarProps) => {
+  const divideTime = 5;
+  const dividedTime = (interval || getIntervalFromLocalStorage()) / divideTime;
+
+  const [value, setValue] = useState(10);
 
   useEffect(() => {
     if (value < 100) {
@@ -15,11 +19,14 @@ export const ProgressBarScreen = () => {
       }, dividedTime);
     }
   }, [value]);
+  return <Progress value={value} className="w-3/4 md:w-1/2 h-1" />;
+};
 
+export const ProgressBarScreen = () => {
   return (
     <div className="w-full p-6">
       <div className="h-dvh flex flex-col items-center justify-center gap-2">
-        <Progress value={value} className="w-3/4 md:w-1/2 h-1" />
+        <ProgressBar />
       </div>
     </div>
   );

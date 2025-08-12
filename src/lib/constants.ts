@@ -88,8 +88,8 @@ export const antiPatterns = [
     icon: Monitor,
   },
   {
-    title: 'Download',
-    url: '/download',
+    title: 'Downloading',
+    url: '/downloading',
     icon: Download,
   },
 ] as const satisfies MenuItem[];
@@ -118,5 +118,5 @@ export const fallBackDict = {
   '/full-screen-loading': null,
   '/settings': null,
   '/': null,
-  '/download': null,
+  '/downloading': null,
 } as const satisfies Record<Urls, React.ElementType | null>;

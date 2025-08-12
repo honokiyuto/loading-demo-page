@@ -1,6 +1,7 @@
-import { ArrowLeft, ArrowRight, Check, Triangle } from 'lucide-react';
+import { Check, CloudDownload, Triangle } from 'lucide-react';
 import { Skeleton } from '../Loading/SkeletonScreen';
 import { BrowserWindow } from '@/components/ui/browser-window';
+import { ProgressBar } from '../Loading/ProgressBarScreen';
 
 type DownloadProgressComponentProps = {
   loadingType: 'skeleton' | 'progress';
@@ -12,18 +13,23 @@ const DownloadProgressComponent = ({
   return (
     <BrowserWindow>
       {loadingType === 'skeleton' && (
-        <Skeleton className="w-full h-15 rounded-md" />
+        <>
+          <div className="relative">
+            <Skeleton className="w-full h-15 rounded-md" />
+            <div className="absolute inset-0 flex items-center justify-center text-sm text-gray-500">
+              <CloudDownload className="h-4 w-4 mr-2" />
+              Downloading...
+            </div>
+          </div>
+        </>
       )}
       {loadingType === 'progress' && (
-        <div className="w-full h-full flex flex-col gap-2">
-          <Skeleton className="w-1/3 h-1/10 rounded-md " />
-          <Skeleton className="w-4/5 h-2/10 rounded-md" />
-          <div className="w-full grid grid-cols-2 gap-4">
-            <Skeleton className="w-full aspect-video rounded-md" />
-            <Skeleton className="w-full aspect-video rounded-md" />
-            <Skeleton className="w-full aspect-video rounded-md" />
-            <Skeleton className="w-full aspect-video rounded-md" />
+        <div className="w-full h-15 flex flex-col gap-2 items-center justify-center">
+          <div className="text-sm text-gray-500 flex items-center">
+            <CloudDownload className="h-4 w-4 mr-2" />
+            Downloading...
           </div>
+          <ProgressBar interval={10000} />
         </div>
       )}
     </BrowserWindow>
