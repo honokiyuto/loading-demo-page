@@ -5,6 +5,7 @@ import { SpinnerScreen } from '@/components/layouts/Loading/SpinnerScreen';
 import { UnusualSpinner } from '@/components/layouts/Loading/UnusualSpinner';
 import {
   ChartBarBig,
+  Download,
   FileVideo,
   Grid2x2,
   Home,
@@ -86,6 +87,11 @@ export const antiPatterns = [
     url: '/full-screen-loading',
     icon: Monitor,
   },
+  {
+    title: 'Download',
+    url: '/download',
+    icon: Download,
+  },
 ] as const satisfies MenuItem[];
 
 export type Urls =
@@ -112,4 +118,5 @@ export const fallBackDict = {
   '/full-screen-loading': null,
   '/settings': null,
   '/': null,
+  '/download': null,
 } as const satisfies Record<Urls, React.ElementType | null>;
