@@ -1,37 +1,17 @@
 import { getContentItems } from '@/lib/mock-data';
-import { Suspense, useMemo } from 'react';
-import { SkeletonScreen } from '../Loading/SkeletonScreen';
-import { SpinnerScreen } from '../Loading/SpinnerScreen';
-import { BlankSpinnerScreen } from '../Loading/BlankSpinnerScreen';
+import { Suspense } from 'react';
 import { ContentCardList } from './parts/ContentsCardList';
-import { ProgressBarScreen } from '../Loading/ProgressBarScreen';
+import { fallBackDict, type Urls } from '@/lib/constants';
 
 type SampleContentsProps = {
-  fallbackType: 'spinner' | 'skeleton' | 'blank' | 'blank-spinner' | 'progress-bar';
+  fallbackType: Urls;
 };
 
 export const SampleContents = ({ fallbackType }: SampleContentsProps) => {
   const itemsPromise = getContentItems();
-
-  const fallback = useMemo(() => {
-    switch (fallbackType) {
-      case 'spinner':
-        return <SpinnerScreen />;
-      case 'skeleton':
-        return <SkeletonScreen />;
-      case 'blank':
-        return null;
-      case 'blank-spinner':
-        return <BlankSpinnerScreen />;
-      case 'progress-bar':
-        return <ProgressBarScreen />;
-      default:
-        return null;
-    }
-  }, [fallbackType]);
-
+  const Fallback = fallBackDict[fallbackType];
   return (
-    <Suspense fallback={fallback}>
+    <Suspense fallback={Fallback ? <Fallback /> : null}>
       <div className="w-full p-6">
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">

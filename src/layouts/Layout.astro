@@ -1,13 +1,11 @@
 ---
 import { SidebarLayoutMain } from '@/components/layouts/SideBarLayout/sidebar-layout';
 import '../styles/global.css';
+import { urlToTitleDict, type Urls } from '@/lib/constants';
 
-const { pathname } = Astro.url;
-const pathnameForTitle = pathname.split('/')?.[2] || 'home';
-const pathnameForSidebar = pathname.split('/').slice(0, -1).join('/');
-const subTitle =
-  pathnameForTitle.charAt(0).toUpperCase() + pathnameForTitle.slice(1);
-const subTitleWithoutHyphen = subTitle.replace(/-/g, ' ');
+const { pathname: currentPathname } = Astro.url; // `/loading-demo-page/xxxx-xxxxx`
+const currentUrl = `/${currentPathname.split('/')?.[2] || ''}` as Urls;
+const subTitle = urlToTitleDict[currentUrl] || 'Home';
 const basePath = import.meta.env.BASE_URL;
 ---
 
@@ -44,20 +42,26 @@ const basePath = import.meta.env.BASE_URL;
     />
     <link rel="icon" type="image/svg+xml" href={`${basePath}/favicon.svg`} />
     <meta name="generator" content={Astro.generator} />
-    <meta property="og:url" content={`${basePath}${pathname}`} />
+    <meta property="og:url" content={basePath} />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={`Loading Demo | ${subTitleWithoutHyphen}`} />
-    <meta property="og:description" content="ローディング画面比較のデモページ" />
+    <meta property="og:title" content={`Loading Demo | ${subTitle}`} />
+    <meta
+      property="og:description"
+      content="ローディング画面比較のデモページ"
+    />
     <meta property="og:site_name" content="Loading Demo" />
     <meta property="og:image" content={`${basePath}/ogp.png`} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`Loading Demo | ${subTitleWithoutHyphen}`} />
-    <meta name="twitter:description" content="ローディング画面比較のデモページ" />
+    <meta name="twitter:title" content={`Loading Demo | ${subTitle}`} />
+    <meta
+      name="twitter:description"
+      content="ローディング画面比較のデモページ"
+    />
     <meta name="twitter:image" content={`${basePath}/ogp.png`} />
-    <title>{`Loading Demo | ${subTitleWithoutHyphen}`}</title>
+    <title>{`Loading Demo | ${subTitle}`}</title>
   </head>
   <body>
-    <SidebarLayoutMain pathname={pathnameForSidebar} client:load>
+    <SidebarLayoutMain currentPathname={currentPathname} client:load>
       <slot />
     </SidebarLayoutMain>
   </body>

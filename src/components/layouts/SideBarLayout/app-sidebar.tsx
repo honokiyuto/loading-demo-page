@@ -15,11 +15,11 @@ import {
 import { home, loadingUIComparison, antiPatterns } from '@/lib/constants';
 
 type AppSidebarProps = {
-  /** ex) loading-demo-page/hoge-hoge */
-  pathname: string;
+  /** ex) `loading-demo-page/hoge-hoge` */
+  currentPathname: string;
 };
 
-export const AppSidebar = ({ pathname }: AppSidebarProps) => {
+export const AppSidebar = ({ currentPathname }: AppSidebarProps) => {
   const basePath = import.meta.env.BASE_URL;
   return (
     <Sidebar>
@@ -38,7 +38,10 @@ export const AppSidebar = ({ pathname }: AppSidebarProps) => {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === ''}>
+                <SidebarMenuButton
+                  asChild
+                  isActive={currentPathname === `${basePath}${home.url}`}
+                >
                   <a href={`${basePath}${home.url}`}>
                     <home.icon />
                     <span>{home.title}</span>
@@ -56,7 +59,7 @@ export const AppSidebar = ({ pathname }: AppSidebarProps) => {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
-                    isActive={pathname === `${basePath}${item.url}`}
+                    isActive={currentPathname === `${basePath}${item.url}/`}
                   >
                     <a href={`${basePath}${item.url}`}>
                       <item.icon />
@@ -76,7 +79,7 @@ export const AppSidebar = ({ pathname }: AppSidebarProps) => {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
-                    isActive={pathname === `${basePath}${item.url}`}
+                    isActive={currentPathname === `${basePath}${item.url}/`}
                   >
                     <a href={`${basePath}${item.url}`}>
                       <item.icon />
