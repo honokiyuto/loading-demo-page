@@ -40,7 +40,7 @@ export const AppSidebar = ({ currentPathname }: AppSidebarProps) => {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
-                  isActive={currentPathname === `${basePath}${home.url}`}
+                  isActive={currentPathname === `${basePath}`}
                 >
                   <a href={`${basePath}${home.url}`}>
                     <home.icon />

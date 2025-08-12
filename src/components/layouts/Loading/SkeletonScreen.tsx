@@ -21,7 +21,7 @@ export const Skeleton = ({ className }: { className: string }) => {
         }
       `}</style>
       <div
-        className={`${className} opacity-50 dark:opacity-20`}
+        className={`${className} opacity-50 dark:opacity-35`}
         style={shimmerStyle}
       />
     </>
