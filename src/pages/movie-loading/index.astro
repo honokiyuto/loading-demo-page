@@ -1,8 +1,13 @@
 ---
 import { MoviePlayer } from '@/components/layouts/MoviePlayer';
 import Layout from '@/layouts/Layout.astro';
+import MdLayout from '@/layouts/MdLayout.astro';
+import MoviePlayerDescription from '@/components/layouts/MoviePlayer/description.md';
 ---
 
 <Layout>
   <MoviePlayer client:only="react" />
+  <MdLayout>
+    <MoviePlayerDescription />
+  </MdLayout>
 </Layout>

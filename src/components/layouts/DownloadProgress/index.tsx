@@ -16,7 +16,7 @@ const DownloadProgressComponent = ({
         <>
           <div className="relative">
             <Skeleton className="w-full h-15 rounded-md" />
-            <div className="absolute inset-0 flex items-center justify-center text-sm text-gray-500">
+            <div className="absolute inset-0 flex items-center justify-center text-sm text-gray-500 dark:text-gray-400">
               <CloudDownload className="h-4 w-4 mr-2" />
               Downloading...
             </div>
@@ -25,7 +25,7 @@ const DownloadProgressComponent = ({
       )}
       {loadingType === 'progress' && (
         <div className="w-full h-15 flex flex-col gap-2 items-center justify-center">
-          <div className="text-sm text-gray-500 flex items-center">
+          <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
             <CloudDownload className="h-4 w-4 mr-2" />
             Downloading...
           </div>

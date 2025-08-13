@@ -27,8 +27,8 @@ const MoviePlayerComponent = ({ loadingType }: MoviePlayerComponentProps) => {
       </div>
       {/* バー */}
       <div className="flex flex-row border-b-1 border-x-1 border-gray-300 dark:border-gray-800">
-        <div className="w-1/3 h-1 bg-gray-300 dark:bg-gray-800"></div>
-        <div className="w-2/3 h-1 bg-gray-500 dark:bg-gray-800"></div>
+        <div className="w-1/3 h-1 bg-gray-300 dark:bg-gray-400"></div>
+        <div className="w-2/3 h-1 bg-gray-500 dark:bg-gray-600"></div>
       </div>
       {/* コントローラー */}
       <div className="h-10 w-full border-b-1 border-x-1 border-gray-300 bg-gray-500 dark:bg-gray-800 dark:border-gray-800 flex flex-row justify-between p-2 items-center">

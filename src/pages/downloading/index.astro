@@ -1,8 +1,13 @@
 ---
 import { DownloadProgress } from '@/components/layouts/DownloadProgress';
 import Layout from '@/layouts/Layout.astro';
+import MdLayout from '@/layouts/MdLayout.astro';
+import DownloadProgressDescription from '@/components/layouts/DownloadProgress/description.md';
 ---
 
 <Layout>
   <DownloadProgress client:only="react" />
+  <MdLayout>
+    <DownloadProgressDescription />
+  </MdLayout>
 </Layout>
