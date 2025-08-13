@@ -6,15 +6,21 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import type { ContentItem } from '@/lib/mock-data';
+import type { ContentItem } from '@/lib/constants';
 
 type ContentCardProps = {
   item: ContentItem;
 };
 
 export const ContentCard = ({ item }: ContentCardProps) => {
+  const baseUrl = import.meta.env.BASE_URL;
   return (
-    <Card className="w-full">
+    <Card
+      className="w-full hover:cursor-pointer transition duration-300 ease-in-out hover:scale-102"
+      onClick={() => {
+        window.location.href = `${baseUrl}${item.url}`;
+      }}
+    >
       <CardHeader>
         <div className="flex justify-between items-start mb-2">
           <Badge

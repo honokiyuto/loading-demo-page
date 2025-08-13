@@ -16,6 +16,9 @@ import {
   SquaresUnite,
 } from 'lucide-react';
 
+/**
+ * メニューの型定義
+ */
 type MenuItem = {
   title: string;
   url: `/${string}`;
@@ -93,11 +96,17 @@ export const antiPatterns = [
   },
 ] as const satisfies MenuItem[];
 
+/**
+ * ページのURLの型定義
+ */
 export type Urls =
   | (typeof loadingUIComparison)[number]['url']
   | (typeof antiPatterns)[number]['url']
   | (typeof home)['url'];
 
+/**
+ * ページのURLとタイトルのマッピング
+ */
 export const urlToTitleDict = {
   [home.url]: home.title,
   ...Object.fromEntries(
@@ -106,6 +115,9 @@ export const urlToTitleDict = {
   ...Object.fromEntries(antiPatterns.map((item) => [item.url, item.title])),
 } as Record<Urls, string>;
 
+/**
+ * ページのURLとコンポーネントのマッピング
+ */
 export const fallBackDict = {
   '/spinner-only': SpinnerScreen,
   '/skeleton-only': SkeletonScreen,
@@ -119,3 +131,87 @@ export const fallBackDict = {
   '/': null,
   '/downloading': null,
 } as const satisfies Record<Urls, React.ElementType | null>;
+
+/**
+ * モックデータの型定義
+ */
+export type ContentItem = {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  date: string;
+  tags: string[];
+  url: string;
+};
+
+/**
+ * モックデータ
+ */
+export const contentItems: ContentItem[] = [
+  {
+    id: 1,
+    title: loadingUIComparison[1].title,
+    description:
+      'Skeleton Screen is a loading UI that shows a skeleton of the content while the content is loading. The skeleton is a placeholder for the content.',
+    category: 'Loading UI',
+    date: '2025-09-06',
+    tags: ['Skeleton', 'Loading', 'UX'],
+    url: loadingUIComparison[1].url,
+  },
+  {
+    id: 2,
+    title: loadingUIComparison[2].title,
+    description:
+      'Spinner is a loading UI that shows a spinner while the content is loading. The spinner is a circle that rotates.',
+    category: 'Loading UI',
+    date: '2025-09-06',
+    tags: ['Spinner', 'Loading', 'UX'],
+    url: loadingUIComparison[2].url,
+  },
+  {
+    id: 3,
+    title: loadingUIComparison[3].title,
+    description:
+      'Blank Screen is a loading UI that shows a blank screen while the content is loading. The blank screen is not any content, just a blank screen.',
+    category: 'Loading UI',
+    date: '2025-09-06',
+    tags: ['Blank', 'Loading', 'UX'],
+    url: loadingUIComparison[3].url,
+  },
+  {
+    id: 4,
+    title: loadingUIComparison[4].title,
+    description:
+      'Progress Bar is a loading UI that shows a progress bar while the content is loading. The progress bar is 100% when the content is loaded.',
+    category: 'Loading UI',
+    date: '2025-09-06',
+    tags: ['Progress Bar', 'Loading', 'UX'],
+    url: loadingUIComparison[4].url,
+  },
+  {
+    id: 5,
+    title: loadingUIComparison[5].title,
+    description:
+      'Blank and Spinner is a loading UI that shows a blank screen and a spinner while the content is loading. The ratio of blank and spinner is 1:1.',
+    category: 'Loading UI',
+    date: '2025-09-06',
+    tags: ['Blank', 'Spinner', 'Loading', 'UX'],
+    url: loadingUIComparison[5].url,
+  },
+  {
+    id: 6,
+    title: loadingUIComparison[6].title,
+    description:
+      'Unusual Spinner is a loading UI that shows a spinner that is not a general spinner. The spinner looks like a worm that is moving.',
+    category: 'Loading UI',
+    date: '2025-09-06',
+    tags: ['Unusual Spinner', 'Loading', 'UX'],
+    url: loadingUIComparison[6].url,
+  },
+];
+
+/**
+ * モックデータのデフォルトのフェッチ時間
+ */
+export const DEFAULT_INTERVAL_TIME_MS = 3000;
