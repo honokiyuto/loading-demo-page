@@ -15,7 +15,6 @@ import {
   SquareDashed,
   SquaresUnite,
 } from 'lucide-react';
-import type { ReactNode } from 'react';
 
 type MenuItem = {
   title: string;
