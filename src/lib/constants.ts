@@ -1,19 +1,20 @@
 import { BlankSpinnerScreen } from '@/components/layouts/Loading/BlankSpinnerScreen';
+import { BlankSkeletonScreen } from '@/components/layouts/Loading/BlankSkeletonScreen';
 import { ProgressBarScreen } from '@/components/layouts/Loading/ProgressBarScreen';
 import { SkeletonScreen } from '@/components/layouts/Loading/SkeletonScreen';
 import { SpinnerScreen } from '@/components/layouts/Loading/SpinnerScreen';
 import { UnusualSpinner } from '@/components/layouts/Loading/UnusualSpinner';
 import {
+  Blend,
   ChartBarBig,
   Download,
   FileVideo,
-  Grid2x2,
   Home,
+  LayoutDashboard,
   LoaderCircle,
   Monitor,
   Settings,
   SquareDashed,
-  SquaresUnite,
 } from 'lucide-react';
 
 /**
@@ -46,7 +47,7 @@ export const loadingUIComparison = [
   {
     title: 'Skeleton Only',
     url: '/skeleton-only',
-    icon: Grid2x2,
+    icon: LayoutDashboard,
   },
   {
     title: 'Spinner Only',
@@ -66,7 +67,12 @@ export const loadingUIComparison = [
   {
     title: 'Blank -> Spinner',
     url: '/blank-spinner',
-    icon: SquaresUnite,
+    icon: Blend,
+  },
+  {
+    title: 'Blank -> Skeleton',
+    url: '/blank-skeleton',
+    icon: Blend,
   },
   {
     title: 'Unusual Spinner',
@@ -123,6 +129,7 @@ export const fallBackDict = {
   '/skeleton-only': SkeletonScreen,
   '/blank-only': null,
   '/blank-spinner': BlankSpinnerScreen,
+  '/blank-skeleton': BlankSkeletonScreen,
   '/progress-bar': ProgressBarScreen,
   '/unusual-spinner': UnusualSpinner,
   '/movie-loading': null,
@@ -203,11 +210,51 @@ export const contentItems: ContentItem[] = [
     id: 6,
     title: loadingUIComparison[6].title,
     description:
+      'Blank and Skeleton is a loading UI that shows a blank screen and a skeleton while the content is loading. The ratio of blank and skeleton is 1:1.',
+    category: 'Loading UI',
+    date: '2025-09-06',
+    tags: ['Blank', 'Skeleton', 'Loading', 'UX'],
+    url: loadingUIComparison[6].url,
+  },
+  {
+    id: 7,
+    title: loadingUIComparison[7].title,
+    description:
       'Unusual Spinner is a loading UI that shows a spinner that is not a general spinner. The spinner looks like a worm that is moving.',
     category: 'Loading UI',
     date: '2025-09-06',
     tags: ['Unusual Spinner', 'Loading', 'UX'],
-    url: loadingUIComparison[6].url,
+    url: loadingUIComparison[7].url,
+  },
+  {
+    id: 8,
+    title: antiPatterns[0].title,
+    description:
+      'When movie player is loading, it shows a loading animation. What can be a better UX?',
+    category: 'Anti Patterns',
+    date: '2025-09-06',
+    tags: ['Movie', 'Loading', 'UX'],
+    url: antiPatterns[0].url,
+  },
+  {
+    id: 9,
+    title: antiPatterns[1].title,
+    description:
+      'When first loading the page, it shows a full screen loading. What can be a better UX?',
+    category: 'Anti Patterns',
+    date: '2025-09-06',
+    tags: ['Full Screen', 'Loading', 'UX'],
+    url: antiPatterns[1].url,
+  },
+  {
+    id: 10,
+    title: antiPatterns[2].title,
+    description:
+      'When downloading a file, it shows a loading animation. What can be a better UX?',
+    category: 'Anti Patterns',
+    date: '2025-09-06',
+    tags: ['Download', 'Loading', 'UX'],
+    url: antiPatterns[2].url,
   },
 ];
 
