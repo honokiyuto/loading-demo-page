@@ -1,21 +1,20 @@
 # ローディング画面比較
 
-## 概要
-
 このWebサイトはローディング画面比較のデモページです。
 ローディングスピナー、スケルトンスクリーン、ブランクスクリーン、プログレスバーなどのローディングUIを比較できます。
 
+## リンク
 
-## 補足
+各ローディングUIのデモページへのリンクはメニューからアクセスできます。
 
-### 技術スタック
+## 技術スタック
 
 - Astro 5.11.0
-- React 18.3.1
-- Tailwind CSS 3.4.17
-- Shadcn UI 0.1.20
+- React 19.1.0
+- Tailwind CSS 4.1.11
+- Shadcn UI
 - Lucide
 
-### リポジトリ
+## リポジトリ
 
 [loading-demo-page](https://github.com/honokiyuto/loading-demo-page)
