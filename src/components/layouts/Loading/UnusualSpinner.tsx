@@ -1,11 +1,11 @@
 // https://codepen.io/jkantner/pen/ZEvQbOK
-const GoOffTrack = ({ className }: { className: string }) => {
+const GoOffTrack = ({ className }: { className?: string }) => {
   return (
     <div className={className}>
       <svg
         viewBox="0 0 128 128"
-        width="128px"
-        height="128px"
+        width="100px"
+        height="100px"
         xmlns="http://www.w3.org/2000/svg"
       >
         {/* Ring */}
@@ -55,7 +55,7 @@ const GoOffTrack = ({ className }: { className: string }) => {
 export const UnusualSpinner = () => {
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <GoOffTrack className="h-15 w-15" />
+      <GoOffTrack />
     </div>
   );
 };
