@@ -2,6 +2,7 @@ import { getContentItems } from '@/lib/mock-data';
 import { Suspense } from 'react';
 import { ContentCardList } from './parts/ContentsCardList';
 import { fallBackDict, type Urls } from '@/lib/constants';
+import { FloatDialogButton } from './parts/FloatDialogButton';
 
 type SampleContentsProps = {
   fallbackType: Urls;
@@ -22,6 +23,7 @@ export const SampleContents = ({ fallbackType }: SampleContentsProps) => {
           </p>
         </div>
         <ContentCardList itemsPromise={itemsPromise} />
+        <FloatDialogButton />
       </div>
     </Suspense>
   );
