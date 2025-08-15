@@ -17,7 +17,7 @@ export const BrowserWindow = ({ children }: BrowserWindowProps) => {
         </div>
       </div>
       {/* アドレスバー */}
-      <div className="w-full h-10 bg-white border-1 border-gray-300 dark:bg-gray-900 dark:border-gray-800 flex items-center px-3 gap-2">
+      <div className="w-full h-10 bg-white border-x-1 border-gray-300 dark:bg-gray-900 dark:border-gray-800 flex items-center px-3 gap-2">
         <ArrowLeft className="text-gray-400 h-5 w-5" />
         <ArrowRight className="text-gray-400 h-5 w-5" />
         <div className="w-full max-w-xl bg-gray-100 h-6 rounded flex items-center px-3 gap-2 dark:bg-gray-800">
@@ -25,7 +25,7 @@ export const BrowserWindow = ({ children }: BrowserWindowProps) => {
         </div>
       </div>
       {/* コンテンツエリア */}
-      <div className="flex-1 bg-white border-x border-gray-300 dark:bg-gray-900 dark:border-gray-800 aspect-3/2 pt-6 px-6">
+      <div className="flex-1 bg-white border-x-1 border-b-1 border-gray-300 dark:bg-gray-900 dark:border-gray-800 aspect-3/2 pt-6 px-6 overflow-hidden">
         {children}
       </div>
     </div>
