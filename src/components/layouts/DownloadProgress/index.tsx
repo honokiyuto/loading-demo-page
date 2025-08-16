@@ -14,7 +14,7 @@ const DownloadProgressComponent = ({
     <BrowserWindow>
       {loadingType === 'skeleton' && (
         <>
-          <div className="relative">
+          <div className="w-full relative">
             <Skeleton className="w-full h-15 rounded-md" />
             <div className="absolute inset-0 flex items-center justify-center text-sm text-gray-500 dark:text-gray-400">
               <CloudDownload className="h-4 w-4 mr-2" />

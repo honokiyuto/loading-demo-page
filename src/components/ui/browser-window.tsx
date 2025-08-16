@@ -25,7 +25,7 @@ export const BrowserWindow = ({ children }: BrowserWindowProps) => {
         </div>
       </div>
       {/* コンテンツエリア */}
-      <div className="flex-1 bg-white border-x border-gray-300 dark:bg-gray-900 dark:border-gray-800 aspect-3/2 pt-6 px-6">
+      <div className="w-full h-70 bg-white border-x border-gray-300 dark:bg-gray-900 dark:border-gray-800 pt-6 px-6">
         {children}
       </div>
     </div>

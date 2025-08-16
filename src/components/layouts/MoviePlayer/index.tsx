@@ -17,7 +17,7 @@ const MoviePlayerComponent = ({ loadingType }: MoviePlayerComponentProps) => {
   return (
     <div className="flex flex-col">
       {/* 動画本体 */}
-      <div className="aspect-video border-1 border-gray-300 dark:border-gray-800">
+      <div className="w-full aspect-video border-1 border-gray-300 dark:border-gray-800">
         {loadingType === 'skeleton' && <Skeleton className="w-full h-full" />}
         {loadingType === 'spinner' && (
           <div className="w-full h-full flex items-center justify-center">
@@ -26,7 +26,7 @@ const MoviePlayerComponent = ({ loadingType }: MoviePlayerComponentProps) => {
         )}
       </div>
       {/* バー */}
-      <div className="flex flex-row border-b-1 border-x-1 border-gray-300 dark:border-gray-800">
+      <div className="w-full flex flex-row border-b-1 border-x-1 border-gray-300 dark:border-gray-800">
         <div className="w-1/3 h-1 bg-gray-300 dark:bg-gray-400"></div>
         <div className="w-2/3 h-1 bg-gray-500 dark:bg-gray-600"></div>
       </div>
