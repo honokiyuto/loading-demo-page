@@ -3,11 +3,14 @@ import { FullScreen } from '@/components/layouts/FullScreen';
 import Layout from '@/layouts/Layout.astro';
 import MdLayout from '@/layouts/MdLayout.astro';
 import FullScreenDescription from '@/components/layouts/FullScreen/description.md';
+import { DialogDescriptionButton } from '@/components/layouts/DialogDescriptionButton';
 ---
 
 <Layout>
   <FullScreen client:only="react" />
-  <MdLayout>
-    <FullScreenDescription />
-  </MdLayout>
+  <DialogDescriptionButton client:load>
+    <MdLayout>
+      <FullScreenDescription />
+    </MdLayout>
+  </DialogDescriptionButton>
 </Layout>

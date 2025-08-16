@@ -3,11 +3,14 @@ import { MoviePlayer } from '@/components/layouts/MoviePlayer';
 import Layout from '@/layouts/Layout.astro';
 import MdLayout from '@/layouts/MdLayout.astro';
 import MoviePlayerDescription from '@/components/layouts/MoviePlayer/description.md';
+import { DialogDescriptionButton } from '@/components/layouts/DialogDescriptionButton';
 ---
 
 <Layout>
   <MoviePlayer client:only="react" />
-  <MdLayout>
-    <MoviePlayerDescription />
-  </MdLayout>
+  <DialogDescriptionButton client:load>
+    <MdLayout>
+      <MoviePlayerDescription />
+    </MdLayout>
+  </DialogDescriptionButton>
 </Layout>
