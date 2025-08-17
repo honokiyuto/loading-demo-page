@@ -23,7 +23,7 @@ export const FloatDialogButton = ({
 }: FloatDialogButtonProps) => {
   return (
     <Dialog>
-      <DialogTrigger className="fixed bottom-4 right-4 border-1 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-full p-3 shadow-md transition-all duration-300 ease-in-out hover:px-6 group overflow-hidden">
+      <DialogTrigger className="fixed bottom-4 right-4 border-1 border-gray-200 dark:border-gray-700 backdrop-blur-[2px] rounded-full p-3 shadow-md transition-all duration-300 ease-in-out hover:px-6 group overflow-hidden">
         <div className="flex items-center gap-2">
           <Icon className="flex-shrink-0" size={20} />
           {buttonLabel && (
