@@ -17,10 +17,10 @@ export const SidebarLayoutMain = ({
       <AppSidebar currentPathname={currentPathname} />
       <main className="w-full relative p-6">
         {children}
-        <div className="m-3 absolute top-0 left-0">
+        <div className="m-3 absolute top-0 left-0 z-10">
           <SidebarTrigger />
         </div>
-        <div className="m-3 absolute top-0 right-0">
+        <div className="m-3 absolute top-0 right-0 z-10">
           <ModeToggle />
         </div>
       </main>
