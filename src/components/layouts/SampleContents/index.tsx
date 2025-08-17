@@ -2,7 +2,9 @@ import { getContentItems } from '@/lib/mock-data';
 import { Suspense } from 'react';
 import { ContentCardList } from './parts/ContentsCardList';
 import { fallBackDict, type Urls } from '@/lib/constants';
-import { FloatDialogButton } from './parts/FloatDialogButton';
+import { FloatDialogButton } from '@/components/layouts/FloatDialogButton';
+import { SettingForm } from '../SettingForm';
+import { Timer } from 'lucide-react';
 
 type SampleContentsProps = {
   fallbackType: Urls;
@@ -23,7 +25,13 @@ export const SampleContents = ({ fallbackType }: SampleContentsProps) => {
           </p>
         </div>
         <ContentCardList itemsPromise={itemsPromise} />
-        <FloatDialogButton />
+        <FloatDialogButton
+          icon={Timer}
+          buttonLabel="Set Loading Duration"
+          title="Loading Duration (ms)"
+        >
+          <SettingForm />
+        </FloatDialogButton>
       </div>
     </Suspense>
   );
