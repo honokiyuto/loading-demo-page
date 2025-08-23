@@ -1,21 +1,10 @@
-import { getIntervalFromLocalStorage } from '@/lib/mock-data';
-import { useState, useEffect } from 'react';
 import { SpinnerScreen } from './SpinnerScreen';
+import { HalfBlankCommon } from './HalfBlankCommon';
 
 export const BlankSpinnerScreen = () => {
-  const halfTime = getIntervalFromLocalStorage() / 2;
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, halfTime);
-  }, []);
-
-  if (isLoading) {
-    return null;
-  }
-
-  return <SpinnerScreen />;
+  return (
+    <HalfBlankCommon>
+      <SpinnerScreen />
+    </HalfBlankCommon>
+  );
 };

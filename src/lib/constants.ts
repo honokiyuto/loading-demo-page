@@ -16,6 +16,8 @@ import {
   Settings,
   SquareDashed,
 } from 'lucide-react';
+import { BlankProgressBarScreen } from '@/components/layouts/Loading/BlankProgressBarScreen';
+import { BlankUnusualSpinnerScreen } from '@/components/layouts/Loading/BlankUnusualSpinnerScreen';
 
 /**
  * メニューの型定義
@@ -55,9 +57,14 @@ export const loadingUIComparison = [
     icon: SquareDashed,
   },
   {
-    title: 'Progress Bar',
-    url: '/progress-bar',
+    title: 'Progress Bar Only',
+    url: '/progress-bar-only',
     icon: ChartBarBig,
+  },
+  {
+    title: 'Unusual Spinner Only',
+    url: '/unusual-spinner-only',
+    icon: LoaderCircle,
   },
   {
     title: 'Blank -> Spinner',
@@ -70,9 +77,14 @@ export const loadingUIComparison = [
     icon: Blend,
   },
   {
-    title: 'Unusual Spinner',
-    url: '/unusual-spinner',
-    icon: LoaderCircle,
+    title: 'Blank -> Progress Bar',
+    url: '/blank-progress-bar',
+    icon: Blend,
+  },
+  {
+    title: 'Blank -> Unusual Spinner',
+    url: '/blank-unusual-spinner',
+    icon: Blend,
   },
 ] as const satisfies MenuItem[];
 
@@ -122,11 +134,13 @@ export const urlToTitleDict = {
 export const fallBackDict = {
   '/spinner-only': SpinnerScreen,
   '/skeleton-only': SkeletonScreen,
+  '/progress-bar-only': ProgressBarScreen,
+  '/unusual-spinner-only': UnusualSpinner,
   '/blank-only': null,
   '/blank-spinner': BlankSpinnerScreen,
   '/blank-skeleton': BlankSkeletonScreen,
-  '/progress-bar': ProgressBarScreen,
-  '/unusual-spinner': UnusualSpinner,
+  '/blank-progress-bar': BlankProgressBarScreen,
+  '/blank-unusual-spinner': BlankUnusualSpinnerScreen,
   '/movie-loading': null,
   '/full-screen-loading': null,
   '/': null,
