@@ -13,7 +13,7 @@ export const HalfBlankCommon = ({ children }: HalfBlankCommonProps) => {
     setTimeout(() => {
       setIsLoading(false);
     }, halfTime);
-  }, []);
+  }, [halfTime]);
 
   if (isLoading) {
     return null;
