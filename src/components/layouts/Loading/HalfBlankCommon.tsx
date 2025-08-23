@@ -1,7 +1,5 @@
 import { getIntervalFromLocalStorage } from '@/lib/mock-data';
 import { useState, useEffect } from 'react';
-import { SkeletonScreen } from './SkeletonScreen';
-
 type HalfBlankCommonProps = {
   children: React.ReactNode;
 };
