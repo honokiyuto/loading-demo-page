@@ -1,21 +1,10 @@
-import { getIntervalFromLocalStorage } from '@/lib/mock-data';
-import { useState, useEffect } from 'react';
 import { SkeletonScreen } from './SkeletonScreen';
+import { HalfBlankCommon } from './HalfBlankCommon';
 
 export const BlankSkeletonScreen = () => {
-  const halfTime = getIntervalFromLocalStorage() / 2;
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, halfTime);
-  }, []);
-
-  if (isLoading) {
-    return null;
-  }
-
-  return <SkeletonScreen />;
+  return (
+    <HalfBlankCommon>
+      <SkeletonScreen />
+    </HalfBlankCommon>
+  );
 };
