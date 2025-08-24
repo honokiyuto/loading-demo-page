@@ -2,8 +2,6 @@
 
 <!-- ここに修正内容を記載 -->
 
-</details>
-
 <details><summary>GitHub Copilot Review Instructions</summary>
 
 GITHUB COPILOT REVIEW MUST STRICTLY FOLLOW THE PROJECT-WIDE RULES DESCRIBED BELOW. READ THEM CAREFULLY.
