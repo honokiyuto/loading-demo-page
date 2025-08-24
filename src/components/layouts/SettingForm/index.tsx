@@ -2,6 +2,7 @@ import { Slider } from '@/components/ui/slider';
 import {
   getIntervalFromLocalStorage,
   getSkeletonPatternFromLocalStorage,
+  sanitizeSkeletonPattern,
   setIntervalToLocalStorage,
   setSkeletonPatternToLocalStorage,
 } from '@/lib/functions';
@@ -55,8 +56,9 @@ export const SettingForm = ({ isDisplaySkeleton }: SettingFormProps) => {
             defaultValue={DEFAULT_SKELETON_PATTERN}
             value={skeletonPatternState}
             onValueChange={(value) => {
-              setSkeletonPatternState(value as SkeletonPattern);
-              setSkeletonPatternToLocalStorage(value as SkeletonPattern);
+              const sanitizedValue = sanitizeSkeletonPattern(value);
+              setSkeletonPatternState(sanitizedValue);
+              setSkeletonPatternToLocalStorage(sanitizedValue);
             }}
           >
             {Object.entries(skeletonPattern).map(([key, value]) => (

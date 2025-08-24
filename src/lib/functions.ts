@@ -44,13 +44,7 @@ export const getIntervalFromLocalStorage = () => {
  */
 export const getSkeletonPatternFromLocalStorage = () => {
   const pattern = localStorage.getItem('skeletonPattern');
-  if (!pattern) {
-    return DEFAULT_SKELETON_PATTERN;
-  }
-  if (!Object.values(skeletonPattern).includes(pattern as SkeletonPattern)) {
-    return DEFAULT_SKELETON_PATTERN;
-  }
-  return pattern as SkeletonPattern;
+  return sanitizeSkeletonPattern(pattern);
 };
 
 /**
@@ -62,4 +56,16 @@ export const getContentItems = async () => {
     setTimeout(resolve, getIntervalFromLocalStorage())
   );
   return contentItems;
+};
+
+/**
+ * スケルトンパターンのサニタイズ処理
+ */
+export const sanitizeSkeletonPattern = (pattern: string | null) => {
+  if (!pattern) {
+    return DEFAULT_SKELETON_PATTERN;
+  }
+  return Object.values(skeletonPattern).includes(pattern as SkeletonPattern)
+    ? (pattern as SkeletonPattern)
+    : DEFAULT_SKELETON_PATTERN;
 };
