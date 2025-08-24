@@ -281,3 +281,8 @@ export const skeletonPattern = {
 } as const;
 
 export type SkeletonPattern = (typeof skeletonPattern)[keyof typeof skeletonPattern];
+
+/**
+ * スケルトンパターンのデフォルト値
+ */
+export const DEFAULT_SKELETON_PATTERN = skeletonPattern.shimmer;

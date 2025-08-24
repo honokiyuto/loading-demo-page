@@ -10,7 +10,11 @@ import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-import { skeletonPattern, type SkeletonPattern } from '@/lib/constants';
+import {
+  DEFAULT_SKELETON_PATTERN,
+  skeletonPattern,
+  type SkeletonPattern,
+} from '@/lib/constants';
 
 type SettingFormProps = {
   isDisplaySkeleton: boolean;
@@ -49,7 +53,7 @@ export const SettingForm = ({ isDisplaySkeleton }: SettingFormProps) => {
             <h2 className="text-sm font-bold">Skeleton Pattern</h2>
           </div>
           <RadioGroup
-            defaultValue={skeletonPattern.shimmer}
+            defaultValue={DEFAULT_SKELETON_PATTERN}
             value={skeletonPatternState}
             onValueChange={(value) => {
               setSkeletonPatternState(value as SkeletonPattern);

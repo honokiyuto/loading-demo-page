@@ -1,6 +1,7 @@
 import {
   contentItems,
   DEFAULT_INTERVAL_TIME_MS,
+  DEFAULT_SKELETON_PATTERN,
   skeletonPattern,
   type SkeletonPattern,
 } from './constants';
@@ -44,10 +45,10 @@ export const getIntervalFromLocalStorage = () => {
 export const getSkeletonPatternFromLocalStorage = () => {
   const pattern = localStorage.getItem('skeletonPattern');
   if (!pattern) {
-    return skeletonPattern.shimmer;
+    return DEFAULT_SKELETON_PATTERN;
   }
   if (!Object.values(skeletonPattern).includes(pattern as SkeletonPattern)) {
-    return skeletonPattern.shimmer;
+    return DEFAULT_SKELETON_PATTERN;
   }
   return pattern as SkeletonPattern;
 };
