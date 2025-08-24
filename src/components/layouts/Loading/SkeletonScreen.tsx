@@ -1,10 +1,14 @@
 import type { CSSProperties } from 'react';
 
 import { Skeleton as PulseSkeleton } from '@/components/ui/skeleton';
-import { getSkeletonPatternFromLocalStorage } from '@/lib/mock-data';
+import { getSkeletonPatternFromLocalStorage } from '@/lib/functions';
 
 const StaticSkeleton = ({ className }: { className: string }) => {
-  return <div className={`${className} bg-gray-200 opacity-50 dark:bg-gray-700 dark:opacity-35`} />;
+  return (
+    <div
+      className={`${className} bg-gray-200 opacity-50 dark:bg-gray-700 dark:opacity-35`}
+    />
+  );
 };
 
 const ShimmerSkeleton = ({ className }: { className: string }) => {

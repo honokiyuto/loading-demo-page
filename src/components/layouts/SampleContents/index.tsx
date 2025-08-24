@@ -1,4 +1,4 @@
-import { getContentItems } from '@/lib/mock-data';
+import { getContentItems } from '@/lib/functions';
 import { Suspense } from 'react';
 import { ContentCardList } from './parts/ContentsCardList';
 import { fallBackDict, type Urls } from '@/lib/constants';
