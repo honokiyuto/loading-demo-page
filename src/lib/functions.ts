@@ -32,7 +32,7 @@ export const getIntervalFromLocalStorage = () => {
     return DEFAULT_INTERVAL_TIME_MS;
   }
   const intInterval = parseInt(interval);
-  if (!intInterval) {
+  if (isNaN(intInterval) || intInterval < 0) {
     return DEFAULT_INTERVAL_TIME_MS;
   }
   return intInterval;
