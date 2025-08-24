@@ -36,7 +36,7 @@ export const FloatDialogButton = ({
       <DialogContent>
         <DialogHeader>
           {title && <DialogTitle>{title}</DialogTitle>}
-          <DialogDescription>{children}</DialogDescription>
+          {children}
         </DialogHeader>
       </DialogContent>
     </Dialog>
