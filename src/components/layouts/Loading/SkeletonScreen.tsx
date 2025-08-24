@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import { useState, type CSSProperties } from 'react';
 
 import { Skeleton as PulseSkeleton } from '@/components/ui/skeleton';
 import { getSkeletonPatternFromLocalStorage } from '@/lib/functions';
@@ -40,8 +40,8 @@ const ShimmerSkeleton = ({ className }: { className: string }) => {
 };
 
 export const Skeleton = ({ className }: { className: string }) => {
-  const skeletonPattern = getSkeletonPatternFromLocalStorage();
-  switch (skeletonPattern) {
+  const [skeletonPatternState] = useState(getSkeletonPatternFromLocalStorage());
+  switch (skeletonPatternState) {
     case 'pulse':
       return <PulseSkeleton className={className} />;
     case 'static':
