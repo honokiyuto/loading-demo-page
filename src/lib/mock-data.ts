@@ -1,4 +1,9 @@
-import { contentItems, DEFAULT_INTERVAL_TIME_MS } from './constants';
+import {
+  contentItems,
+  DEFAULT_INTERVAL_TIME_MS,
+  skeletonPattern,
+  type SkeletonPattern,
+} from './constants';
 
 /**
  * ローカルストレージにフェッチ時間を保存する
@@ -6,6 +11,14 @@ import { contentItems, DEFAULT_INTERVAL_TIME_MS } from './constants';
  */
 export const setIntervalToLocalStorage = (interval: number) => {
   localStorage.setItem('interval', interval.toString());
+};
+
+/**
+ * ローカルストレージにスケルトンパターンを保存する
+ * @param pattern スケルトンパターン
+ */
+export const setSkeletonPatternToLocalStorage = (pattern: SkeletonPattern) => {
+  localStorage.setItem('skeletonPattern', pattern);
 };
 
 /**
@@ -22,6 +35,21 @@ export const getIntervalFromLocalStorage = () => {
     return DEFAULT_INTERVAL_TIME_MS;
   }
   return intInterval;
+};
+
+/**
+ * ローカルストレージからスケルトンパターンを取得する
+ * @returns スケルトンパターン
+ */
+export const getSkeletonPatternFromLocalStorage = () => {
+  const pattern = localStorage.getItem('skeletonPattern');
+  if (!pattern) {
+    return skeletonPattern.shimmer;
+  }
+  if (!Object.values(skeletonPattern).includes(pattern as SkeletonPattern)) {
+    return skeletonPattern.shimmer;
+  }
+  return pattern as SkeletonPattern;
 };
 
 /**
