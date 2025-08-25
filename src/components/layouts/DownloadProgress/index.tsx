@@ -1,5 +1,5 @@
 import { Check, CloudDownload, Triangle } from 'lucide-react';
-import { Skeleton } from '../Loading/SkeletonScreen';
+import { ShimmerSkeleton } from '../Loading/SkeletonScreen';
 import { BrowserWindow } from '@/components/ui/browser-window';
 import { ProgressBar } from '../Loading/ProgressBarScreen';
 
@@ -15,7 +15,7 @@ const DownloadProgressComponent = ({
       {loadingType === 'skeleton' && (
         <>
           <div className="w-full relative">
-            <Skeleton className="w-full h-15 rounded-md" />
+            <ShimmerSkeleton className="w-full h-15 rounded-md" />
             <div className="absolute inset-0 flex items-center justify-center text-sm text-gray-500 dark:text-gray-400">
               <CloudDownload className="h-4 w-4 mr-2" />
               Downloading...

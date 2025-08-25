@@ -13,8 +13,10 @@ import { Label } from '@/components/ui/label';
 import {
   DEFAULT_SKELETON_PATTERN,
   skeletonPattern,
+  skeletonPatternToComponent,
   type SkeletonPattern,
 } from '@/lib/constants';
+import { Skeleton } from '../Loading/SkeletonScreen';
 
 type SettingFormProps = {
   isDisplaySkeleton: boolean;
@@ -61,12 +63,18 @@ export const SettingForm = ({ isDisplaySkeleton }: SettingFormProps) => {
               setSkeletonPatternToLocalStorage(sanitizedValue);
             }}
           >
-            {Object.entries(skeletonPattern).map(([key, value]) => (
-              <div className="flex items-center gap-3" key={key}>
-                <RadioGroupItem value={value} id={key} />
-                <Label htmlFor={key}>{value}</Label>
-              </div>
-            ))}
+            {Object.entries(skeletonPattern).map(([key, value]) => {
+              const SkeletonComponent = skeletonPatternToComponent[value];
+              return (
+                <div className="flex items-center gap-3" key={key}>
+                  <RadioGroupItem value={value} id={key} />
+                  <div className="flex flex-row gap-1">
+                    <SkeletonComponent className="w-7 h-7 rounded-md" />
+                    <Label htmlFor={key}>{value}</Label>
+                  </div>
+                </div>
+              );
+            })}
           </RadioGroup>
         </div>
       )}
