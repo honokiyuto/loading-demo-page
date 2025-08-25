@@ -1,4 +1,4 @@
-import { getIntervalFromLocalStorage } from '@/lib/mock-data';
+import { getIntervalFromLocalStorage } from '@/lib/functions';
 import { useState, useEffect } from 'react';
 type HalfBlankCommonProps = {
   children: React.ReactNode;

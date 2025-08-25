@@ -1,6 +1,17 @@
-import type { CSSProperties } from 'react';
+import { useState, type CSSProperties } from 'react';
 
-export const Skeleton = ({ className }: { className: string }) => {
+import { Skeleton as PulseSkeleton } from '@/components/ui/skeleton';
+import { getSkeletonPatternFromLocalStorage } from '@/lib/functions';
+
+const StaticSkeleton = ({ className }: { className: string }) => {
+  return (
+    <div
+      className={`${className} bg-gray-200 opacity-50 dark:bg-gray-700 dark:opacity-35`}
+    />
+  );
+};
+
+const ShimmerSkeleton = ({ className }: { className: string }) => {
   const shimmerStyle: CSSProperties = {
     background:
       'linear-gradient(110deg, #eeeeee 10%, #ffffff 20%, #eeeeee 30%)',
@@ -26,6 +37,18 @@ export const Skeleton = ({ className }: { className: string }) => {
       />
     </>
   );
+};
+
+export const Skeleton = ({ className }: { className: string }) => {
+  const [skeletonPatternState] = useState(getSkeletonPatternFromLocalStorage());
+  switch (skeletonPatternState) {
+    case 'pulse':
+      return <PulseSkeleton className={className} />;
+    case 'static':
+      return <StaticSkeleton className={className} />;
+    default:
+      return <ShimmerSkeleton className={className} />;
+  }
 };
 
 export const SkeletonScreen = () => {

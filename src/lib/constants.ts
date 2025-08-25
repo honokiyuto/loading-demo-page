@@ -270,3 +270,19 @@ export const contentItems: ContentItem[] = [
  * モックデータのデフォルトのフェッチ時間
  */
 export const DEFAULT_INTERVAL_TIME_MS = 3000;
+
+/**
+ * スケルトンパターンのデフォルト値
+ */
+export const skeletonPattern = {
+  static: 'static',
+  shimmer: 'shimmer',
+  pulse: 'pulse',
+} as const;
+
+export type SkeletonPattern = (typeof skeletonPattern)[keyof typeof skeletonPattern];
+
+/**
+ * デフォルトのスケルトンパターン
+ */
+export const DEFAULT_SKELETON_PATTERN = skeletonPattern.shimmer;

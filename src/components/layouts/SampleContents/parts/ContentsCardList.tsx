@@ -1,6 +1,6 @@
 import { use } from 'react';
 import { ContentCard } from './ContentCard';
-import type { ContentItem } from '@/lib/mock-data';
+import type { ContentItem } from '@/lib/functions';
 
 type ContentCardListProps = {
   itemsPromise: Promise<ContentItem[]>;
