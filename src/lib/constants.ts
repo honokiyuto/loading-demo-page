@@ -277,13 +277,18 @@ export const contentItems: ContentItem[] = [
 export const DEFAULT_INTERVAL_TIME_MS = 3000;
 
 /**
+ * スケルトンパターンの型定義
+ */
+export type SkeletonPattern = 'static' | 'shimmer' | 'pulse';
+
+/**
  * スケルトンパターンのデフォルト値
  */
 export const skeletonPattern = {
   static: 'static',
   shimmer: 'shimmer',
   pulse: 'pulse',
-} as const;
+} as const satisfies Record<SkeletonPattern, SkeletonPattern>;
 
 /**
  * スケルトンとコンポーネントのマッピング
@@ -293,12 +298,6 @@ export const skeletonPatternToComponent = {
   shimmer: ShimmerSkeleton,
   pulse: PulseSkeleton,
 } as const satisfies Record<SkeletonPattern, React.ElementType>;
-
-/**
- * スケルトンパターンの型定義
- */
-export type SkeletonPattern =
-  (typeof skeletonPattern)[keyof typeof skeletonPattern];
 
 /**
  * デフォルトのスケルトンパターン
