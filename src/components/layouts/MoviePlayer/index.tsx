@@ -7,7 +7,7 @@ import {
   Triangle,
   Volume2,
 } from 'lucide-react';
-import { Skeleton } from '../Loading/SkeletonScreen';
+import { ShimmerSkeleton } from '../Loading/SkeletonScreen';
 
 type MoviePlayerComponentProps = {
   loadingType: 'skeleton' | 'spinner';
@@ -18,7 +18,7 @@ const MoviePlayerComponent = ({ loadingType }: MoviePlayerComponentProps) => {
     <div className="flex flex-col">
       {/* 動画本体 */}
       <div className="w-full aspect-video border-1 border-gray-300 dark:border-gray-800">
-        {loadingType === 'skeleton' && <Skeleton className="w-full h-full" />}
+        {loadingType === 'skeleton' && <ShimmerSkeleton className="w-full h-full" />}
         {loadingType === 'spinner' && (
           <div className="w-full h-full flex items-center justify-center">
             <Loader2 className="h-15 w-15 animate-spin text-gray-400" />

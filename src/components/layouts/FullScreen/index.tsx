@@ -1,5 +1,5 @@
 import { Check, Triangle } from 'lucide-react';
-import { Skeleton } from '../Loading/SkeletonScreen';
+import { ShimmerSkeleton } from '../Loading/SkeletonScreen';
 import { BrowserWindow } from '@/components/ui/browser-window';
 
 type FullScreenComponentProps = {
@@ -10,18 +10,18 @@ const FullScreenComponent = ({ loadingType }: FullScreenComponentProps) => {
   return (
     <BrowserWindow>
       {loadingType === 'full' && (
-        <Skeleton className="w-full h-full rounded-t-md" />
+        <ShimmerSkeleton className="w-full h-full rounded-t-md" />
       )}
       {loadingType === 'partial' && (
         <div className="w-full h-full">
           <div className="flex flex-col gap-2">
-            <Skeleton className="w-1/3 h-3 rounded-md " />
-            <Skeleton className="w-4/5 h-3 rounded-md" />
+            <ShimmerSkeleton className="w-1/3 h-3 rounded-md " />
+            <ShimmerSkeleton className="w-4/5 h-3 rounded-md" />
             <div className="w-full grid grid-cols-2 gap-4">
-              <Skeleton className="w-full h-20 rounded-md" />
-              <Skeleton className="w-full h-20 rounded-md" />
-              <Skeleton className="w-full h-20 rounded-md" />
-              <Skeleton className="w-full h-20 rounded-md" />
+              <ShimmerSkeleton className="w-full h-20 rounded-md" />
+              <ShimmerSkeleton className="w-full h-20 rounded-md" />
+              <ShimmerSkeleton className="w-full h-20 rounded-md" />
+              <ShimmerSkeleton className="w-full h-20 rounded-md" />
             </div>
           </div>
         </div>

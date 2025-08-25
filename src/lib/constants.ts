@@ -1,7 +1,12 @@
 import { BlankSpinnerScreen } from '@/components/layouts/Loading/BlankSpinnerScreen';
 import { BlankSkeletonScreen } from '@/components/layouts/Loading/BlankSkeletonScreen';
 import { ProgressBarScreen } from '@/components/layouts/Loading/ProgressBarScreen';
-import { SkeletonScreen } from '@/components/layouts/Loading/SkeletonScreen';
+import {
+  ShimmerSkeleton,
+  SkeletonScreen,
+  StaticSkeleton,
+} from '@/components/layouts/Loading/SkeletonScreen';
+import { Skeleton as PulseSkeleton } from '@/components/ui/skeleton';
 import { SpinnerScreen } from '@/components/layouts/Loading/SpinnerScreen';
 import { UnusualSpinner } from '@/components/layouts/Loading/UnusualSpinner';
 import {
@@ -280,7 +285,20 @@ export const skeletonPattern = {
   pulse: 'pulse',
 } as const;
 
-export type SkeletonPattern = (typeof skeletonPattern)[keyof typeof skeletonPattern];
+/**
+ * スケルトンとコンポーネントのマッピング
+ */
+export const skeletonPatternToComponent = {
+  static: StaticSkeleton,
+  shimmer: ShimmerSkeleton,
+  pulse: PulseSkeleton,
+} as const satisfies Record<SkeletonPattern, React.ElementType>;
+
+/**
+ * スケルトンパターンの型定義
+ */
+export type SkeletonPattern =
+  (typeof skeletonPattern)[keyof typeof skeletonPattern];
 
 /**
  * デフォルトのスケルトンパターン
