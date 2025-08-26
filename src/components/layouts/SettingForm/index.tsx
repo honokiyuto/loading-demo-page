@@ -16,7 +16,6 @@ import {
   skeletonPatternToComponent,
   type SkeletonPattern,
 } from '@/lib/constants';
-import { Skeleton } from '../Loading/SkeletonScreen';
 
 type SettingFormProps = {
   isDisplaySkeleton: boolean;
