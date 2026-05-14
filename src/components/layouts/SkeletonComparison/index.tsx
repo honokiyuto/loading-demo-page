@@ -12,16 +12,11 @@ export const SkeletonComparison = () => {
         {skeletonPatterns.map((pattern) => {
           const SkeletonComponent = skeletonPatternToComponent[pattern];
           return (
-            <div
-              key={pattern}
-              className="p-4 border rounded-lg text-center"
-            >
+            <div key={pattern} className="p-4 border rounded-lg text-center">
               <h2 className="text-xl font-semibold capitalize mb-4">
                 {pattern}
               </h2>
-              <div className="flex justify-center items-center h-32">
-                <SkeletonComponent className="rounded-lg w-4/5" />
-              </div>
+              <SkeletonComponent className="rounded-lg" />
             </div>
           );
         })}
