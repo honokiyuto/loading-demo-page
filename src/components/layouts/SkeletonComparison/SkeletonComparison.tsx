@@ -1,7 +1,7 @@
 import React from 'react';
 import { skeletonPatternToComponent } from '@/lib/constants';
 
-const SkeletonComparison = () => {
+export const SkeletonComparison = () => {
   const skeletonPatterns = Object.keys(skeletonPatternToComponent);
 
   return (
@@ -23,5 +23,3 @@ const SkeletonComparison = () => {
     </div>
   );
 };
-
-export default SkeletonComparison;
