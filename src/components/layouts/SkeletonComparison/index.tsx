@@ -16,7 +16,7 @@ export const SkeletonComparison = () => {
               <h2 className="text-xl font-semibold capitalize mb-4">
                 {pattern}
               </h2>
-              <SkeletonComponent className="rounded-lg" />
+              <SkeletonComponent className="rounded-lg h-32" />
             </div>
           );
         })}
